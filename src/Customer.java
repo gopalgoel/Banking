@@ -80,7 +80,7 @@ class Customer extends User {
 		System.out.println(loanList.size());
 		for (Loan loan : loanList) {
 			if (loan.status == "active")
-				loan.showLoanDetails();
+				loan.toString();
 		}
 	}
 
@@ -164,7 +164,7 @@ class Customer extends User {
 			if (loanList.add(temp)) {
 				Bank.setTotalMoneyLent(Bank.getTotalMoneyLent() + amount);
 				System.out.println("Your loan is issued");
-				temp.showLoanDetails();
+				temp.toString();
 			}
 		}
 		if (type.equals("EducationLoan")) {
@@ -172,7 +172,7 @@ class Customer extends User {
 			if (loanList.add(temp)) {
 				Bank.setTotalMoneyLent(Bank.getTotalMoneyLent() + amount);
 				System.out.println("Your loan is issued");
-				temp.showLoanDetails();
+				temp.toString();
 			}
 		}
 	}
