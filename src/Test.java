@@ -49,7 +49,10 @@ public class Test {
 									cust.issueNewLoan();
 								} else if (input3 == 6) {
 									cust.payLoanDueAmount();
-								} else if (input3 != 0) {
+								} else if (input3 == 7) {
+									cust.showAllLoanDetails();
+								}
+								else if (input3 != 0) {
 									System.out.println("Please select one of the above option");
 								}
 							} while (input3 != 0);
@@ -139,7 +142,7 @@ public class Test {
 		System.out.println("Press 4 to check account balance");
 		System.out.println("Press 5 to apply for a loan");
 		System.out.println("Press 6 to pay off old loan");
-		System.out.println("Press 7 to show all my accounts and loans. // not yet working");
+		System.out.println("Press 7 to show all loans");
 		System.out.println("Press 0 to go to previous menu");
 	}
 }
