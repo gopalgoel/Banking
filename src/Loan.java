@@ -25,11 +25,11 @@ abstract class Loan {
 
 	public String toString() {
 		return "Loan Name: " + getLoanName() +
-				" Loan ID: " + getLoanID() +
-				" Loan Amount: " + getLoanAmount() +
-				" Loan Start Date: " + getStartDate() +
-				" End Date: " + getEndDate() +
-				" Due Amount: " + getDueAmount();
+				"\nLoan ID: " + getLoanID() +
+				"\nLoan Amount: " + getLoanAmount() +
+				"\nLoan Start Date: " + getStartDate() +
+				"\nEnd Date: " + getEndDate() +
+				"\nDue Amount: " + getDueAmount();
 		
 	}
 
