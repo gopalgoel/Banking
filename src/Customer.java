@@ -106,7 +106,7 @@ class Customer extends User {
 			if (accounts.add(temp)) {
 				Bank.setTotalMoneyDeposited(Bank.getTotalMoneyDeposited() + amount);
 				System.out.println("Account created.");
-				temp.showAccountDetails();
+				System.out.println(temp);
 			}
 		}
 	}

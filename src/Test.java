@@ -43,7 +43,7 @@ public class Test {
 									Account temp = cust.getAccount();
 									if (temp == null) {
 									} else {
-										temp.showAccountDetails();
+										System.out.println(temp);;
 									}
 								} else if (input3 == 5) {
 									cust.issueNewLoan();

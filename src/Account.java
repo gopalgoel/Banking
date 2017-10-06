@@ -17,13 +17,10 @@ class Account {
 			status = "active";
 	}
 
-	public void showAccountDetails() {
-		System.out.print("Account Number: ");
-		System.out.println(this.getAccountNumber());
-		System.out.print("Current Balance: ");
-		System.out.println(this.getBalance());
-		System.out.print("Account Status: ");
-		System.out.println(this.getStatus());
+	public String toString() {
+		return "Account Number: " + accountNumber +
+				"\nCurrent Balance: " + balance + 
+				"\nAccount Status: " + status;
 	}
 
 	private static Double takeDoubleInput() {
