@@ -203,7 +203,7 @@ class Customer extends User {
 	}
 
 	private int takeLoanID() {
-		System.out.println("Enter the load ID");
+		System.out.println("Enter the loan ID");
 		int temp = takeIntegerInput();
 		return temp;
 	}
