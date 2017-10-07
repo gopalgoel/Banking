@@ -8,56 +8,13 @@ class Customer extends User {
 	public Customer(String name, String userName, String password) {
 		super(name, userName, password);
 	}
-
-	private String getStringInput() {
-		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		String temp = null;
-		try {
-			temp = br.readLine();
-		} catch (IOException e) {
-		}
-		return temp;
-	}
-
-	private static Double takeDoubleInput() {
-		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		Double temp = null;
-		do {
-			try {
-				temp = Double.parseDouble(br.readLine());
-			} catch (NumberFormatException e) {
-				System.out.println("Please enter integer value.");
-				continue;
-			} catch (IOException e) {
-			}
-			break;
-		} while (true);
-		return temp;
-	}
-
-	private static Integer takeIntegerInput() {
-		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		Integer temp = null;
-		do {
-			try {
-				temp = Integer.parseInt(br.readLine());
-			} catch (NumberFormatException e) {
-				System.out.println("Please enter integer value.");
-				continue;
-			} catch (IOException e) {
-			}
-			break;
-		} while (true);
-		return temp;
-	}
-
 	public Account getAccount() {
 		Integer accountNumber;
 		Account temp = null;
 		Integer input = 1;
 		do {
 			System.out.println("Enter your account no");
-			accountNumber = takeIntegerInput();
+			accountNumber = StdInReader.integerInput();
 			for (Account account : accounts) {
 				if (account.getAccountNumber() == accountNumber) {
 					temp = account;
@@ -67,7 +24,7 @@ class Customer extends User {
 				System.out.println("No account with that account Number");
 				System.out.println("Press 1 to try again");
 				System.out.println("Press 0 to go back to previous menu");
-				input = takeIntegerInput();
+				input = StdInReader.integerInput();
 			} else {
 				break;
 			}
@@ -97,7 +54,7 @@ class Customer extends User {
 		// Input Amount
 		System.out
 				.println("How much money would you like to deposit now? Minimum amount to open an account is Rs.1000");
-		amount = takeDoubleInput();
+		amount = StdInReader.doubleInput();
 		if (amount < 1000)
 			System.out.println("Sorry we cant open an account with amount " + amount.toString());
 		else {
@@ -125,7 +82,7 @@ class Customer extends User {
 		do {
 			System.out.println(
 					"Enter Type of your loan:\nEnter \"HomeLoan\" for Home Loan\nEnter \"EducationLoan\" for Education Loan");
-			type = getStringInput();
+			type = StdInReader.stringInput();
 			if (type.equals("HomeLoan") || type.equals("EducationLoan"))
 				break;
 			else {
@@ -134,7 +91,7 @@ class Customer extends User {
 		} while (true);
 		do {
 			System.out.println("Enter loan amount");
-			amount = takeDoubleInput();
+			amount = StdInReader.doubleInput();
 			if (amount <= 0) {
 				System.out.println("Sorry! Amount must be positive");
 				continue;
@@ -151,7 +108,7 @@ class Customer extends User {
 
 		do {
 			System.out.println("Enter loan duration in years");
-			tenureInYears = takeIntegerInput();
+			tenureInYears = StdInReader.integerInput();
 			if (tenureInYears <= 0) {
 				System.out.println("Sorry! Duration must be positive");
 			} else {
@@ -204,7 +161,7 @@ class Customer extends User {
 
 	private int takeLoanID() {
 		System.out.println("Enter the load ID");
-		int temp = takeIntegerInput();
+		int temp = StdInReader.integerInput();
 		return temp;
 	}
 

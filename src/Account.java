@@ -1,7 +1,3 @@
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-
 class Account {
 	private Double balance = 0.0;
 	private Double profit = 0.0;
@@ -25,45 +21,13 @@ class Account {
 		System.out.print("Account Status: ");
 		System.out.println(this.getStatus());
 	}
-
-	private static Double takeDoubleInput() {
-		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		Double temp = null;
-		do {
-			try {
-				temp = Double.parseDouble(br.readLine());
-			} catch (NumberFormatException e) {
-				System.out.println("Please enter integer value.");
-				continue;
-			} catch (IOException e) {
-			}
-			break;
-		} while (true);
-		return temp;
-	}
-
-	private static Integer takeIntegerInput() {
-		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		Integer temp = null;
-		do {
-			try {
-				temp = Integer.parseInt(br.readLine());
-			} catch (NumberFormatException e) {
-				System.out.println("Please enter integer value.");
-				continue;
-			} catch (IOException e) {
-			}
-			break;
-		} while (true);
-		return temp;
-	}
-
+	
 	public void deposit() {
 		Double amount;
 		Integer input = 1;
 		do {
 			System.out.println("How much money you want to deposit?");
-			amount = takeDoubleInput();
+			amount = StdInReader.doubleInput();
 			if (amount > 0) {
 				double temp = balance;
 				balance += amount;
@@ -84,7 +48,7 @@ class Account {
 				do {
 					System.out.println("Press 1 to try again");
 					System.out.println("Press 0 to go back to previous menu");
-					input = takeIntegerInput();
+					input = StdInReader.integerInput();
 					if (input == 1 || input == 0)
 						break;
 					else
@@ -99,7 +63,7 @@ class Account {
 		int input = 0;
 		do {
 			System.out.println("How much money you want to withdraw?");
-			amount = takeDoubleInput();
+			amount = StdInReader.doubleInput();
 			if (amount > 0) {
 				if (amount <= balance + 1000) {
 					balance -= amount;
@@ -115,7 +79,7 @@ class Account {
 				do {
 					System.out.println("Press 1 to try again");
 					System.out.println("Press 0 to go back to previous menu");
-					input = takeIntegerInput();
+					input = StdInReader.integerInput();
 					if (input == 1 || input == 0)
 						break;
 					else
