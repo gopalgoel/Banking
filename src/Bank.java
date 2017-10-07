@@ -15,7 +15,7 @@ class Bank {
 
 	private Bank() {
 		admin = new Admin("Gopal Goel", "admin", "admin");
-		admin.bank = this;
+		admin.setBank(this);
 		bank = this;
 		bankStarted = true;
 		customers.add(new Customer("Gopal Goel", "g", "g"));

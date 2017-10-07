@@ -1,15 +1,26 @@
 class Admin extends User {
-	Bank bank;
 
+	private Bank bank;
+
+	
 	public Admin(String name, String userName, String password) {
 		super(name, userName, password);
 	}
 
-	public String getUserName() {
-		return userName;
-	}
+  /**
+   * Get Admin's bank
+   * @return the bank
+   */
+  public Bank getBank() {
+    return bank;
+  }
 
-	public String getPassword() {
-		return password;
-	}
+  /**
+   * Set admin's bank
+   * @param bank the bank to set
+   */
+  public void setBank(Bank bank) {
+    this.bank = bank;
+  }
+
 }
