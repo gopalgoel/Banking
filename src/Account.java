@@ -2,7 +2,7 @@ class Account {
 	private Double balance = 0.0;
 	private Double profit = 0.0;
 	private Integer accountNumber;
-	private String status;
+	private AccountStatus status;
 	private static int nextAccountNumber = 16000;
 	public static double rateOfInterest = 4.00;
 
@@ -10,7 +10,7 @@ class Account {
 		this.balance = balance;
 		accountNumber = nextAccountNumber++;
 		if (balance >= 0)
-			status = "active";
+			status = AccountStatus.ACTIVE;
 	}
 
 	public void showAccountDetails() {
@@ -38,10 +38,11 @@ class Account {
 					balance -= 100;
 				}
 				System.out.println("Your updated balance is: " + balance.toString());
-				if (balance >= 0)
-					status = "active";
-				else
-					status = "frozen";
+				if (balance >= 0) {
+					status = AccountStatus.ACTIVE;
+				} else {
+					status = AccountStatus.FROZEN;
+				}
 				input = 0;
 			} else {
 				System.out.println("Amount can not be 0 or negative. Please enter a positive amount.");
@@ -69,8 +70,9 @@ class Account {
 					balance -= amount;
 					Bank.setTotalMoneyDeposited(Bank.getTotalMoneyDeposited() - amount);
 					System.out.println("Your updated balance is: " + balance.toString());
-					if (balance < 0)
-						status = "frozen";
+					if (balance < 0) {
+						status = AccountStatus.FROZEN;
+					}
 				} else {
 					System.out.println("You donot have enough balance to withdraw");
 				}
@@ -89,7 +91,11 @@ class Account {
 		} while (input != 0);
 	}
 
-	public String getStatus() {
+	/**
+	 * Get Account's status
+	 * @return Account Status
+	 */
+	public AccountStatus getStatus() {
 		return status;
 	}
 
