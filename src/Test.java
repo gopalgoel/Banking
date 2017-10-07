@@ -1,6 +1,4 @@
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
 
 public class Test {
 	public static void main(String[] args) throws IOException {
@@ -13,18 +11,18 @@ public class Test {
 		int input3 = 0;
 		do {
 			showStartMenu();
-			input1 = takeIntegerInput();
+			input1 = StdInReader.integerInput();
 			if (input1 == 1) {
 				do {
 					showUserMenu();
-					input2 = takeIntegerInput();
+					input2 = StdInReader.integerInput();
 					if (input2 == 1) {
 						Customer cust = icici.customerLogin();
 						if (cust == null) {
 						} else {
 							do {
 								showCustomerMenu();
-								input3 = takeIntegerInput();
+								input3 = StdInReader.integerInput();
 								if (input3 == 1) { // open account
 									cust.openNewAccount();
 								} else if (input3 == 2) { // deposit money
@@ -66,7 +64,7 @@ public class Test {
 				} else {
 					do {
 						showAdminMenu();
-						input2 = takeIntegerInput();
+						input2 = StdInReader.integerInput();
 						if (input2 == 1) {
 							icici.showBankDetails(admin);
 						} else if (input2 == 2) {
@@ -88,21 +86,6 @@ public class Test {
 				System.out.println("Please select one of the above option");
 			}
 		} while (input1 != 0);
-	}
-
-	public static int takeIntegerInput() throws IOException {
-		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		int temp;
-		do {
-			try {
-				temp = Integer.parseInt(br.readLine());
-			} catch (NumberFormatException e) {
-				System.out.println("Please enter integer value.");
-				continue;
-			}
-			break;
-		} while (true);
-		return temp;
 	}
 
 	public static void showStartMenu() {

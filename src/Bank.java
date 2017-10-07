@@ -217,39 +217,6 @@ class Bank {
 		} while (input != 0);
 		return temp;
 	}
-
-	private static Double takeDoubleInput() {
-		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		Double temp = null;
-		do {
-			try {
-				temp = Double.parseDouble(br.readLine());
-			} catch (NumberFormatException e) {
-				System.out.println("Please enter integer value.");
-				continue;
-			} catch (IOException e) {
-			}
-			break;
-		} while (true);
-		return temp;
-	}
-
-	private static Integer takeIntegerInput() {
-		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		Integer temp = null;
-		do {
-			try {
-				temp = Integer.parseInt(br.readLine());
-			} catch (NumberFormatException e) {
-				System.out.println("Please enter integer value.");
-				continue;
-			} catch (IOException e) {
-			}
-			break;
-		} while (true);
-		return temp;
-	}
-
 	public void showProfit(Admin admin) {
 		System.out.println("Profit Earned till date is: " + getProfit());
 	}
@@ -285,7 +252,7 @@ class Bank {
 	public void changeInterestRate(Admin admin) {
 		if (this.admin == admin) {
 			System.out.println("Enter new Interest Rate in %");
-			Integer temp = takeIntegerInput();
+			Integer temp = StdInReader.integerInput();
 			Account.rateOfInterest = temp;
 			System.out.println("Rate of Interest is now " + Account.rateOfInterest + "% ");
 		}
@@ -298,16 +265,16 @@ class Bank {
 				System.out.println("Press 1 to change Home Loan Rate");
 				System.out.println("Press 2 to change Education Loan Rate");
 				System.out.println("Press 0 to go back to previous menu");
-				temp = takeIntegerInput();
+				temp = StdInReader.integerInput();
 				if (temp == 1) {
 					System.out.println("Enter new Loan Rate in %");
-					Double temp2 = takeDoubleInput();
+					Double temp2 = StdInReader.doubleInput();
 					HomeLoan.rate = temp2;
 					System.out.println("Rate of Loan is now " + HomeLoan.rate + "% ");
 					break;
 				} else if (temp == 2) {
 					System.out.println("Enter new Loan Rate in %");
-					Double temp2 = takeDoubleInput();
+					Double temp2 = StdInReader.doubleInput();
 					EducationLoan.rate = temp2;
 					System.out.println("Rate of Loan is now " + EducationLoan.rate + "% ");
 					break;
