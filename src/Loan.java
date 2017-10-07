@@ -18,10 +18,20 @@ abstract class Loan {
 		status = "active";
 		loanID = loanIssueNumber++;
 	}
+	
+	abstract public String getLoanName();
 
 	abstract public double getDueAmount();
 
-	abstract public void showLoanDetails();
+	public String toString() {
+		return "Loan Name: " + getLoanName() +
+				"\nLoan ID: " + getLoanID() +
+				"\nLoan Amount: " + getLoanAmount() +
+				"\nLoan Start Date: " + getStartDate() +
+				"\nEnd Date: " + getEndDate() +
+				"\nDue Amount: " + getDueAmount();
+		
+	}
 
 	abstract public double getLoanRate();
 

@@ -80,7 +80,7 @@ class Customer extends User {
 		System.out.println(loanList.size());
 		for (Loan loan : loanList) {
 			if (loan.status == "active")
-				loan.showLoanDetails();
+				System.out.println(loan);
 		}
 	}
 
@@ -106,7 +106,7 @@ class Customer extends User {
 			if (accounts.add(temp)) {
 				Bank.setTotalMoneyDeposited(Bank.getTotalMoneyDeposited() + amount);
 				System.out.println("Account created.");
-				temp.showAccountDetails();
+				System.out.println(temp);
 			}
 		}
 	}
@@ -164,7 +164,7 @@ class Customer extends User {
 			if (loanList.add(temp)) {
 				Bank.setTotalMoneyLent(Bank.getTotalMoneyLent() + amount);
 				System.out.println("Your loan is issued");
-				temp.showLoanDetails();
+				System.out.println(temp);
 			}
 		}
 		if (type.equals("EducationLoan")) {
@@ -172,7 +172,7 @@ class Customer extends User {
 			if (loanList.add(temp)) {
 				Bank.setTotalMoneyLent(Bank.getTotalMoneyLent() + amount);
 				System.out.println("Your loan is issued");
-				temp.showLoanDetails();
+				System.out.println(temp);
 			}
 		}
 	}
@@ -203,7 +203,7 @@ class Customer extends User {
 	}
 
 	private int takeLoanID() {
-		System.out.println("Enter the load ID");
+		System.out.println("Enter the loan ID");
 		int temp = takeIntegerInput();
 		return temp;
 	}
