@@ -5,7 +5,8 @@ public class Test {
 		System.out.println("===============================");
 		System.out.println("Welcome to the Bank of Westeros");
 		System.out.println("===============================");
-		Bank icici = Bank.getBank();
+		Admin bankAdmin = new Admin("Gopal Goel", "admin", "admin");
+		Bank icici = new Bank(bankAdmin);
 		int input1 = 0;
 		int input2 = 0;
 		int input3 = 0;

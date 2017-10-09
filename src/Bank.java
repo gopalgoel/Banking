@@ -9,23 +9,11 @@ class Bank {
 	private static Double cashInHand = cashInitially;
 	private static Double totalMoneyDeposited = 0.0;
 	private static Double totalMoneyLent = 0.0;
-	private static boolean bankStarted = false;
-	public static Bank bank;
-	public static int customerID = 0;
 
-	private Bank() {
-		admin = new Admin("Gopal Goel", "admin", "admin");
-		admin.bank = this;
-		bank = this;
-		bankStarted = true;
+	public Bank(Admin admin) {
+		this.admin = admin;
+		admin.setBank(this);
 		customers.add(new Customer("Gopal Goel", "g", "g"));
-	}
-
-	public static Bank getBank() {
-		if (bankStarted == false) {
-			return new Bank();
-		} else
-			return bank;
 	}
 
 	public static Double getProfit() {
